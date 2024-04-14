@@ -1,0 +1,5 @@
+Flask
+Flask-Cors
+Gunicorn
+scikit-learn==1.2.2
+requests
