@@ -13,10 +13,12 @@ CORS(app)
 MODEL_FILEPATH = "model.pkl"
 
 if not os.path.exists(MODEL_FILEPATH):
-    url = ""
+    print("Downloading model file...")
+    url = "https://github.com/GreenGridIn/Backend/releases/download/model/model.pkl"
     r = requests.get(url)
     with open(MODEL_FILEPATH, "wb") as f:
         f.write(r.content)
+        print("Model file downloaded successfully")
 
 
 with open(MODEL_FILEPATH, "rb") as f:
@@ -45,5 +47,5 @@ def predict():
     return jsonify({"power": prediction})
 
 
-if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+# if __name__ == "__main__":
+#     app.run(debug=True, port=5000)
